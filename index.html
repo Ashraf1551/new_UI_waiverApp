@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuition Payment Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tuition Payment Calculator</h1>
+        <div class="breaking-news">
+            <div class="news-content">
+                This web application will only be valid for DIU CSE_64 Batch
+            </div>
+        </div>
+        <div class="semester-selection">
+            <label for="semesterSelect">Select Semester:</label>
+            <select id="semesterSelect" onchange="updateSemester()" aria-label="Select Semester">
+                <option value="">Select semester...</option>
+                <option value="fall2024">Fall 2024 (L2 T2)</option>
+                <option value="spring2025">Spring 2025 (L3 T1)</option>
+                <option value="fall2025">Fall 2025 (L3 T2)</option>
+                <option value="spring2026">Spring 2026 (L4 T1)</option>
+                <option value="fall2026">Fall 2026 (L4 T2)</option>
+            </select>
+        </div>
+        <div id="actualFees" class="actual-fees-section hidden">
+            <div class="semester-title">Selected Semester: <span id="selectedSemesterName"></span></div>
+            <div class="fees-and-course-container">
+                <div class="fees-details">
+                    <h2>Actual Fees</h2>
+                    <div id="feesDetails">
+                        <!-- Fees details will be displayed here -->
+                    </div>
+                </div>
+                <div class="course-list">
+                    <h2>Course List</h2>
+                    <div id="courseList">
+                        <!-- Course list will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="input-section">
+            <div class="input-group">
+                <label for="waiverPercentageSelect">Choose waiver percentage:</label>
+                <select id="waiverPercentageSelect" onchange="clearWaiverInput()" aria-label="Select Waiver Percentage">
+                    <option value="">Select percentage...</option>
+                    <option value="75">75%</option>
+                    <option value="50">50%</option>
+                    <option value="35">35%</option>
+                    <option value="25">25%</option>
+                    <option value="10">10%</option>
+                </select>
+            </div>
+            <div class="or-section">OR</div>
+            <div class="input-group">
+                <label for="waiverInput">Enter waiver percentage:</label>
+                <input type="number" id="waiverInput" min="0" max="100" placeholder="Enter percentage" oninput="clearWaiverSelect()" aria-label="Enter Waiver Percentage">
+            </div>
+            <div class="button-group">
+                <button onclick="calculatePayment()" aria-label="Calculate Payment">Calculate</button>
+                <button type="reset" onclick="resetForm()" aria-label="Reset Form">Reset</button>
+            </div>
+        </div>
+        <div id="results" class="results-section">
+            <!-- Results will be displayed here -->
+        </div>
+        <div id="error" class="error"></div>
+        <div class="author-section">
+            <p>Created By Ashraf || CSE-64_R</p>
+        </div>
+    </div>
+
+    <div class="loader" id="loader"></div> <!-- Loader for indicating calculations -->
+
+    <script src="script.js"></script>
+</body>
+</html>
