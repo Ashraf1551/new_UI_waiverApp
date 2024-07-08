@@ -23,23 +23,23 @@ body {
 .breaking-news {
     background-color: #1A2426;
     color: #ffffff;
-    padding: 5px 0;
+    padding: 10px 20px;
     font-weight: bold;
     margin-bottom: 20px;
     border-radius: 8px;
     position: relative;
     overflow: hidden;
-    height: 20px;
-}
-
-.breaking-news .news-content {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.breaking-news .news-content {
     animation: scroll-left 10s linear infinite;
+    white-space: nowrap;
 }
 
 @keyframes scroll-left {
@@ -78,10 +78,12 @@ body {
 .fees-and-course-container {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .fees-details, .course-list {
     flex: 1;
+    font-size: 0.9em;
 }
 
 .hidden {
@@ -150,6 +152,11 @@ body {
 @media (max-width: 600px) {
     .container {
         padding: 10px;
+    }
+
+    .fees-and-course-container {
+        flex-direction: column;
+        gap: 0;
     }
 
     .button-group button {
